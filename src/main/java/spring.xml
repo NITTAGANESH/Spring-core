@@ -1,0 +1,42 @@
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+    xmlns:p="http://www.springframework.org/schema/p"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans  
+                http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"> 
+    <bean id="engine" class="com.spring.car.Engine">
+        <!-- configure properties of Engine bean if necessary -->
+    </bean>
+
+    <bean id="brakes" class="com.spring.car.Brakes">
+        <!-- configure properties of Brakes bean if necessary -->
+    </bean>
+
+    <bean id="gear" class="com.spring.car.Gear">
+        <!-- configure properties of Gear bean if necessary -->
+        
+    </bean>
+
+    <bean id="car" class="com.spring.car.Car">
+        
+        <constructor-arg ref="engine" />
+        <constructor-arg ref="brakes" />
+        <constructor-arg ref="gear" />
+
+     
+        <property name="engine" ref="engine" />
+        <property name="brakes" ref="brakes" />
+        <property name="gear" ref="gear" />
+
+        <!-- field injection -->
+       <!--  <property name="engine">
+            <ref bean="engine" />
+        </property> -->
+        <!-- <property name="brakes">
+            <ref bean="brakes" />
+        </property> -->
+        <!-- <property name="gear">
+            <ref bean="gear" />
+        </property> -->
+    </bean>
+
+</beans>
